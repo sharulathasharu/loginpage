@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sign-up</h2>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="email">User Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <small>Password must be at least 8 characters and include one uppercase letter, one special character, and one number.</small>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<head>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://i.pinimg.com/originals/74/5d/11/745d1180ebbf9f7adbe43d6b9e4abdfc.jpg'); /* Add your image URL here */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Add background color with transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center;
+    width: 350px;
+}
+
+h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin: 15px 0;
+    text-align: left;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: #a8cee4;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+</style>
+</head>
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("signup-form");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        // Email validation using regular expression
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailRegex.test(email)) {
+            alert("Invalid email address");
+            return;
+        }
+
+        // Password validation
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$/;
+        if (!passwordRegex.test(password)) {
+            alert("Invalid password. Password should contain:\n" +
+                "At least one uppercase letter\n" +
+                "At least one special character\n" +
+                "At least one number\n" +
+                "Minimum length of 8 characters");
+            return;
+        }
+
+        // If both email and password are valid
+        alert("Sign-up Successful!");
+        form.reset();
+    });
+});
+
+    </script>
+</head>
